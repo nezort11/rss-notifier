@@ -42,7 +42,7 @@ These are the tasks that need to be solved when building such program:
 
 - [x] Convenient configuration interface via bot
 
-- [ ] Add Sentry error logging
+- [x] Add Sentry error logging
 
 ## Tags
 

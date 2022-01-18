@@ -4,6 +4,7 @@ from json import JSONDecodeError
 from threading import Thread
 from time import sleep
 
+import sentry_sdk
 import toml
 from telegram import Update
 from telegram.bot import Bot
@@ -13,10 +14,14 @@ from telegram.parsemode import ParseMode
 from feed import poll_feed
 from job import JobEntry
 
+config = toml.load("config.toml")
+
+sentry_sdk.init(config["sentry"]["key"], traces_sample_rate=1.0)
+
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
-config = toml.load("config.toml")
+
 BOT_TOKEN = config["bot"]["token"]
 
 
