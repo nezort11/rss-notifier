@@ -5,4 +5,7 @@ services:
    build: .
    image: rss_notifier
    container_name: rss_notifier_bot
-   command: python feed.py
+   command: python bot.py
+   restart: unless-stopped
+   volumes:
+     - ./src/config.toml:/app/config.toml

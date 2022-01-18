@@ -20,4 +20,4 @@ RUN pip install -U pip
 RUN pip install -r requirements.txt
 RUN rm requirements.txt
 
-COPY ./src/* .
+COPY ./src/* ./

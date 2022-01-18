@@ -18,3 +18,6 @@ orgUid = "xxx"
 
 [bot]
 token = "xxx"
+
+[sentry]
+key = "xxx"

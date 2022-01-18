@@ -1,5 +1,36 @@
 # RSS updates notifier
 
+## Getting started using
+
+First clone the repo onto your server:
+
+```sh
+git clone https://github.com/Egor4ik325/rss-notifier
+cd rss-notifier
+```
+
+Create and edit `config.toml` in `src/` folder (based on `config.toml.example`).
+Customize non-secret setting such as query and update check interval.
+
+Also `src/entries.json` file must exists (can be empty).
+
+Upwork: To get `securityToken`, `userUid` and `orgUid` go the Upwork, search for any jobs, look for RSS link,
+get these settings from RSS link query params.
+
+Telegram bot: Go to @BotFather and create new bot, paste token under `[bot].token` in `config.toml`.
+
+Sentry: To get information when something goes wrong with the notifier, go to https://sentry.io and create a new project, paste key inside config file under `[sentry].key`.
+
+After all of that build an Docker image and run a container:
+
+```sh
+# 'docker-compose' for V1 / 'docker compose' for V2
+docker compose build
+docker compose up -d
+```
+
+## Desc
+
 RSS updates notifier program and bot that send information about updates to RSS source.
 
 I will use it primarily for getting Upwork job updates:
@@ -13,16 +44,9 @@ I will use it primarily for getting Upwork job updates:
 Display most important information:
 
 - title
-- badged
-- tags
-- level
-
-RSS configuration:
-
-- query string
-- max price
-- level
-- update period
+- budget
+- category
+- skills
 
 ## Roadmap
 
@@ -46,4 +70,4 @@ These are the tasks that need to be solved when building such program:
 
 ## Tags
 
-rss, feed, notifier, updates, news, parser, listener, scraper, upwork, jobs, poller, broadcast.
+rss, feed, notifier, updates, news, parser, listener, scraper, upwork, jobs, poller, broadcast, jobs.
