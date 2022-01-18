@@ -28,16 +28,22 @@ RSS configuration:
 
 These are the tasks that need to be solved when building such program:
 
-- [ ] Construct RSS source function
+- [x] Construct RSS source function
 
-- [ ] Get the RSS file
+- [x] Get the RSS file
 
-- [ ] Parse RSS/XML file to determine new entries
+- [x] Parse RSS/XML file to determine new entries
 
-- [ ] Notify about new entries/jobs
+- [x] Check for new entries/jobs
 
-- [ ] Convenient configuration interface
+- [x] Implement bot subscribers list
+
+- [x] Broadcast updates to subscribers
+
+- [x] Convenient configuration interface via bot
+
+- [ ] Add Sentry error logging
 
 ## Tags
 
-rss, feed, notifier, updates, news, parser, listener, scraper, upwork.
+rss, feed, notifier, updates, news, parser, listener, scraper, upwork, jobs, poller, broadcast.

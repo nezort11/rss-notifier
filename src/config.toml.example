@@ -1,6 +1,6 @@
 [notifier]
-# Feed pulling interval in ms
-interval = 60_000
+# Feed pulling interval in sec
+interval = 60
 
 [feed]
 q = "django"

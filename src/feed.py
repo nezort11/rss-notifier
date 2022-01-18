@@ -8,6 +8,8 @@ import feedparser
 import requests
 import toml
 
+from job import JobEntry
+
 UPWORK_FEED_URL = "https://www.upwork.com/ab/feed/jobs/rss"
 
 c = toml.load("config.toml")
@@ -40,14 +42,19 @@ def check_updates(feed: dict) -> Generator[dict, None, None]:
 
 
 def poll_feed():
+    """Poll RSS feed and yield updates."""
     feed_url = construct_feed_url()
-    response = requests.get(feed_url)
-    response.raise_for_status()
-    feed = feedparser.parse(response.content)
+    try:
+        response = requests.get(feed_url)
+        response.raise_for_status()
+        feed = feedparser.parse(response.content)
+    except Exception as e:
+        # If anything bad happended while retrieving feed, reraise exception
+        raise e
 
-    for entry in check_updates(feed):
-        print(entry["id"])
+    yield from check_updates(feed)
 
 
 if __name__ == "__main__":
-    poll_feed()
+    for update in poll_feed():
+        print(JobEntry(update))
