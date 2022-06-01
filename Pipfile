@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 requests = "==2.27.1"
-feedparser = "==6.0.8"
+feedparser = "==6.0.10"
 toml = "==0.10.2"
 python-telegram-bot = "==13.10"
 sentry-sdk = "==1.5.2"
